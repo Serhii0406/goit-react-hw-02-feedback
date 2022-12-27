@@ -28,11 +28,10 @@ class Feedback extends Component {
     return total;
   };
 
-  incerremntStats = event => {
-    const nameStat = event.target.textContent.toLowerCase();
-    this.setState({ [nameStat]: this.state[nameStat] + 1 }, () => {
-      this.countTotalFeedback();
-    });
+  onLeaveFeedback = feedback => {
+    this.setState(prevSate => ({
+      [feedback]: prevSate[feedback] + 1,
+    }));
   };
 
   render() {
@@ -43,7 +42,7 @@ class Feedback extends Component {
           children={
             <FeedbackOptions
               options={Object.keys(this.state)}
-              onLeaveFeedback={this.incerremntStats}
+              onLeaveFeedback={this.onLeaveFeedback}
             ></FeedbackOptions>
           }
         ></Section>
