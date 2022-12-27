@@ -42,6 +42,7 @@ class Feedback extends Component {
           title="Please leave feedback"
           children={
             <FeedbackOptions
+              options={Object.keys(this.state)}
               onLeaveFeedback={this.incerremntStats}
             ></FeedbackOptions>
           }
